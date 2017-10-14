@@ -43,33 +43,11 @@ static int getnetidfromhandle(net_handle_t handle, unsigned *netid) {
 
 
 int android_setsocknetwork(net_handle_t network, int fd) {
-    unsigned netid;
-    if (!getnetidfromhandle(network, &netid)) {
-        errno = EINVAL;
-        return -1;
-    }
-
-    int rval = setNetworkForSocket(netid, fd);
-    if (rval < 0) {
-        errno = -rval;
-        rval = -1;
-    }
-    return rval;
+    return 0;
 }
 
 int android_setprocnetwork(net_handle_t network) {
-    unsigned netid;
-    if (!getnetidfromhandle(network, &netid)) {
-        errno = EINVAL;
-        return -1;
-    }
-
-    int rval = setNetworkForProcess(netid);
-    if (rval < 0) {
-        errno = -rval;
-        rval = -1;
-    }
-    return rval;
+    return 0;
 }
 
 int android_getaddrinfofornetwork(net_handle_t network,

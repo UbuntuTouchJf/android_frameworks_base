@@ -25,11 +25,7 @@
 using namespace android;
 
 ANativeWindow* ANativeWindow_fromSurface(JNIEnv* env, jobject surface) {
-    sp<ANativeWindow> win = android_view_Surface_getNativeWindow(env, surface);
-    if (win != NULL) {
-        win->incStrong((void*)ANativeWindow_acquire);
-    }
-    return win.get();
+    return NULL;
 }
 
 void ANativeWindow_acquire(ANativeWindow* window) {

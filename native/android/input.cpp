@@ -272,37 +272,22 @@ float AMotionEvent_getHistoricalAxisValue(const AInputEvent* motion_event,
 
 void AInputQueue_attachLooper(AInputQueue* queue, ALooper* looper,
         int ident, ALooper_callbackFunc callback, void* data) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    Looper* l = reinterpret_cast<Looper*>(looper);
-    iq->attachLooper(l, ident, callback, data);
 }
 
 void AInputQueue_detachLooper(AInputQueue* queue) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    iq->detachLooper();
 }
 
 int32_t AInputQueue_hasEvents(AInputQueue* queue) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    return iq->hasEvents();
+    return 0;
 }
 
 int32_t AInputQueue_getEvent(AInputQueue* queue, AInputEvent** outEvent) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    InputEvent* event;
-    int32_t res = iq->getEvent(&event);
-    *outEvent = event;
-    return res;
+    return 0;
 }
 
 int32_t AInputQueue_preDispatchEvent(AInputQueue* queue, AInputEvent* event) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    InputEvent* e = static_cast<InputEvent*>(event);
-    return iq->preDispatchEvent(e) ? 1 : 0;
+    return 0;
 }
 
 void AInputQueue_finishEvent(AInputQueue* queue, AInputEvent* event, int handled) {
-    InputQueue* iq = static_cast<InputQueue*>(queue);
-    InputEvent* e = static_cast<InputEvent*>(event);
-    iq->finishEvent(e, handled != 0);
 }

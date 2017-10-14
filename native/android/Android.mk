@@ -27,22 +27,17 @@ LOCAL_SHARED_LIBRARIES := \
     libutils \
     libbinder \
     libui \
-    libgui \
-    libandroid_runtime \
-    libnetd_client \
+    libgui
 
 LOCAL_STATIC_LIBRARIES := \
     libstorage
 
 LOCAL_C_INCLUDES += \
     frameworks/base/native/include \
-    frameworks/base/core/jni/android \
     bionic/libc/dns/include \
     system/netd/include \
 
 LOCAL_MODULE := libandroid
-
-LOCAL_CFLAGS += -Wall -Werror -Wunused -Wunreachable-code
 
 # Required because of b/25642296
 LOCAL_CLANG_arm64 := false
